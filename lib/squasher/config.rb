@@ -10,7 +10,7 @@ module Squasher
       def process(path)
         @error = false
 
-        str = YAML.load(ERB.new(File.read(path)).result(binding))
+        str = YAML.unsafe_load(ERB.new(File.read(path)).result(binding))
         [str, @error]
       end
 
